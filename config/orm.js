@@ -17,6 +17,16 @@ let orm = {
             cb(result);
         });
     },
+    update: function(table, objColVals, condition, cb) {
+        var queryString = "UPDATE ?? SET ?? WHERE ??;
+        connection.query(queryString,[table, objColVals, condition], function(err, result) {
+          if (err) {
+            throw err;
+          }
+    
+          cb(result);
+        });
+      }
     
 
 
