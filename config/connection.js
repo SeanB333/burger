@@ -1,7 +1,8 @@
-require('dotenv').config()
+// set .env path
+require("dotenv").config();
 const mysql = require("mysql");
 
-
+// setup SQL connection
 let connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
@@ -10,13 +11,14 @@ let connection = mysql.createConnection({
     database: "burgers_db"
 });
 
-connection.connect(function(err) {
+//  make SQL connection
+connection.connect(function(err){
     if (err) {
-        console.error(`error conecting: ${err.stack}`);
+        console.error(`error connecting :${err.stack}`);
         return;
     }
-    console.log(`connected as id ${connection.threadId}`);
-    
+    console.log(`connected as id: ${connection.threadId}`);
 });
 
+// export connection
 module.exports = connection;

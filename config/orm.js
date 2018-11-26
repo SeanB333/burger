@@ -1,27 +1,31 @@
-const connection = require("./connection.js");
+// require connection from connection.js
+const connection = require("./connection");
 
 let orm = {
-    selectAll: function(table ,cb) {
-        let queryString = "SELECT * FROM ?;";
-        connection.query(queryString,[table], function(err, result){
+    selectAll: function (tableName, cb) {
+        let queryString = "SELECT * FROM ??;";
+        connection.query(queryString, [tableName], function (err, result) {
             if (err) throw err;
             cb(result);
         });
     },
-    insertOne: function(table, name, vals, cb){
-        let queryString = "INSERT INTO ? (??) VALUES (?);";
-        connection.query(queryString, [table, name, vals],function(err, result){
+
+    insertOne: function (tableName, cols, vals) {
+        let queryString = "INSERT INTO ?? (??) VALUES (??);";
+        connection.query(queryString, [tableName, cols, vals] ,function(err,result){
             if (err) throw err;
             cb(result);
         });
     },
-    update: function(table, status, val, id, cb) {
-        var queryString = "UPDATE ?? SET ?? = ? WHERE id = ?;";
-        connection.query(queryString,[table, status, val, id], function(err, result) {
-          if (err) throw err;
-          cb(result);
+
+    updateOne: function (tableName, cols, vals) {
+        let queryString = "UPDATE ?? SET ?? WHERE ??;";
+        connection.query(queryString, [tableName, vals, cols], function(err,result){
+            if (err) throw err;
+            cb(result);
         });
-      }
+    }
 };
 
+// export orm
 module.exports = orm;
