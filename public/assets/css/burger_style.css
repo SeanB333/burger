@@ -1,0 +1,16 @@
+body {
+    background-color:gray;
+}
+
+.box {
+    border-radius: 50px;
+    box-shadow: 5px 6px 4px rgba(0, 0, 0, .5);
+    background-image: linear-gradient(to right, rgb(245, 239, 239) , rgb(167, 167, 167));
+}
+
+.burger-text {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    color: rgb(80, 80, 80);
+    text-shadow: 2px 2px 4px #8d8d8d;
+}

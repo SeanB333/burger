@@ -9,17 +9,18 @@ let burger = {
         });
     },
 
-    insert:(cols, cb) => {
-        orm.insertOne("burgers", cols, vals,(res) => {
+    insertOne: function (burger_name, cb) {
+        orm.insertOne(burger_name, function(res) {
             cb(res);
         });
     },
 
-    update:(vals, cols, cb) => {
-        orm.updateOne("burgers", vals, cols,(res) => {
+    updateOne: function (burger_id, cb) {
+        orm.updateOne(burger_id, function (res) {
             cb(res);
         });
-    }
+    },
+    
 
 };
 

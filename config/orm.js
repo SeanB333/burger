@@ -10,21 +10,22 @@ let orm = {
         });
     },
 
-    insertOne:(tableName, cols, vals) => {
-        let queryString = "INSERT INTO ?? (??) VALUES (??);";
-        connection.query(queryString, [tableName, cols, vals] ,(err,result) => {
+    insertOne: function (burger_name, cb) {
+        connection.query('INSERT INTO burgers SET ?', {
+            burger_name: burger_name,
+            devoured: false
+        }, function (err, result) {
             if (err) throw err;
             cb(result);
         });
     },
 
-    updateOne:(tableName, cols, vals) => {
-        let queryString = "UPDATE ?? SET devoured=?? WHERE id=??;";
-        connection.query(queryString, [tableName, vals, cols],(err,result) => {
+    updateOne: function (burgerID, cb) {
+        connection.query('UPDATE burgers SET ? WHERE ?', [{ devoured: true }, { id: burgerID }], function (err, result) {
             if (err) throw err;
             cb(result);
         });
-    }
+    },
 };
 
 // export orm
