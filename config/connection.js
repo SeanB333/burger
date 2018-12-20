@@ -4,11 +4,11 @@ const mysql = require("mysql");
 
 // setup SQL connection
 let connection = mysql.createConnection({
-    host: HOST,
-    port: C_PORT,
-    user: USER,
-    password: PASS,
-    database: DATA_B
+    host:"tkck4yllxdrw0bhi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    port:3306add,
+    user:"o9yuo9c1h94yf96v",
+    password:"bfjjnjlqgema48oo",
+    database:"p4ybf9zfyrnlqadr"
 });
 
 //  make SQL connection
